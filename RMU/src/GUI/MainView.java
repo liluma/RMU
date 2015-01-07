@@ -33,7 +33,7 @@ public class MainView extends Application {
             @Override
             public void handle(ActionEvent event){
                 String selectedPath = FolderSelectorHelper.getInstance().SelectPath();
-                JOptionPane.showMessageDialog(null, selectedPath);
+                domCntrl.pathSelected(selectedPath);
             }
         });
         
