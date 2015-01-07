@@ -6,16 +6,15 @@
 
 package GUI;
 
-import java.io.File;
+import Domain.DomainController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,29 +22,24 @@ import javafx.stage.Stage;
  */
 public class MainView extends Application {
     private Button loadFileLocation;
-    private Label pathLabel;
-    private final DirectoryChooser  directoryChooser = new DirectoryChooser();
-    private File locationFolder;
+    private DomainController domCntrl;
     
     @Override
     public void start(Stage primaryStage) {
+        domCntrl = new DomainController();
         loadFileLocation = new Button();
         loadFileLocation.setText("Select path");
         loadFileLocation.setOnAction(new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent event){
-                locationFolder = directoryChooser.showDialog(primaryStage);
-                if(locationFolder != null){
-                    updateLabel();
-                }
+                String selectedPath = FolderSelectorHelper.getInstance().SelectPath();
+                JOptionPane.showMessageDialog(null, selectedPath);
             }
         });
         
-        pathLabel = new Label();
         
         StackPane root = new StackPane();
         root.getChildren().add(loadFileLocation);
-        root.getChildren().add(pathLabel);
         
         Scene scene = new Scene(root, 500, 500);
         
@@ -53,14 +47,8 @@ public class MainView extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    
-    private void updateLabel(){
-        pathLabel.setText(locationFolder.getAbsolutePath());
-    }
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         launch(args);
     }
