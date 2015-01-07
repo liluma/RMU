@@ -34,6 +34,12 @@ public class MainView extends Application {
             public void handle(ActionEvent event){
                 String selectedPath = FolderSelectorHelper.getInstance().SelectPath();
                 domCntrl.pathSelected(selectedPath);
+                
+                StackPane root = new StackPane();
+                Scene scene = new Scene(root, 500, 500);
+                primaryStage.setTitle("RMU || overview");
+                primaryStage.setScene(scene);
+                primaryStage.show();
             }
         });
         
