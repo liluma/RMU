@@ -10,12 +10,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 public class OverviewController implements Initializable {
     private DomainController domCntrl;
-    @FXML
-    private ListView fileListView;
+    @FXML private ListView fileListView;
+    @FXML private Label folderLocationLabel;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -23,7 +24,7 @@ public class OverviewController implements Initializable {
     }
     
     public void initData(DomainController domCntrl) {
-        
+        folderLocationLabel.setText("test");
     }
     
 }
