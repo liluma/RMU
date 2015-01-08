@@ -23,4 +23,8 @@ public class DomainController {
     public List<String> getSelectedFiles(){
         return selectedFiles.getSelectedFiles();
     }
+
+    public List<String> shuffleSelectedFiles() {
+        return selectedFiles.shuffleList();
+    }
 }

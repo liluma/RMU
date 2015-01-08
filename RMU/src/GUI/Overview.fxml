@@ -39,7 +39,7 @@
                                     </Lighting>
                                  </effect>
                               </Label>
-                              <Button alignment="CENTER" mnemonicParsing="false" text="Button" />
+                              <Button fx:id="randomizeButton" alignment="CENTER" mnemonicParsing="false" text="Randomize" />
                            </children>
                         </FlowPane>
                      </children>

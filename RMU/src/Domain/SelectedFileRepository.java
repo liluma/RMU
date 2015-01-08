@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class SelectedFileRepository {
     private List<String> selectedFilesNames;
@@ -36,6 +37,19 @@ public class SelectedFileRepository {
     }
 
     List<String> getSelectedFiles() {
+        return selectedFilesNames;
+    }
+
+    List<String> shuffleList() {
+        List<String> toShuffleList = new ArrayList(selectedFilesNames);
+        selectedFilesNames.clear();
+        Random r = new Random();
+        
+        while(toShuffleList.size() > 0){
+            int selectedIndex = r.nextInt(toShuffleList.size());
+            selectedFilesNames.add(toShuffleList.get(selectedIndex));
+            toShuffleList.remove(selectedIndex);
+        }
         return selectedFilesNames;
     }
 }
