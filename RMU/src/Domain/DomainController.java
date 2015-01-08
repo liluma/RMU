@@ -13,4 +13,8 @@ public class DomainController {
         pathController.setPath(path);
         selectedFiles.initFiles(path);
     }
+
+    public String getSelectedPath() {
+        return pathController.getPath();
+    }
 }

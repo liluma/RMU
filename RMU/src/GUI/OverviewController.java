@@ -11,8 +11,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 
+import javafx.scene.control.ListView;
 public class OverviewController implements Initializable {
     private DomainController domCntrl;
     @FXML private ListView fileListView;
@@ -24,7 +24,8 @@ public class OverviewController implements Initializable {
     }
     
     public void initData(DomainController domCntrl) {
-        folderLocationLabel.setText("test");
+        this.domCntrl = domCntrl;
+        folderLocationLabel.setText(domCntrl.getSelectedPath());
     }
     
 }
