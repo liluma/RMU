@@ -34,4 +34,8 @@ public class SelectedFileRepository {
         return file.substring(file.lastIndexOf("."));
         else return "";
     }
+
+    List<String> getSelectedFiles() {
+        return selectedFilesNames;
+    }
 }

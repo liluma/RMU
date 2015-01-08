@@ -1,5 +1,7 @@
 package Domain;
 
+import java.util.List;
+
 public class DomainController {
     private PathController pathController;
     private SelectedFileRepository selectedFiles;
@@ -16,5 +18,9 @@ public class DomainController {
 
     public String getSelectedPath() {
         return pathController.getPath();
+    }
+    
+    public List<String> getSelectedFiles(){
+        return selectedFiles.getSelectedFiles();
     }
 }
