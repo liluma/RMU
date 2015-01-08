@@ -7,13 +7,17 @@
 package GUI;
 
 import Domain.DomainController;
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -34,11 +38,17 @@ public class MainView extends Application {
                 String selectedPath = FolderSelectorHelper.getInstance().SelectPath();
                 domCntrl.pathSelected(selectedPath);
                 
-                StackPane root = new StackPane();
-                Scene scene = new Scene(root, 500, 500);
-                primaryStage.setTitle("RMU || overview");
-                primaryStage.setScene(scene);
-                primaryStage.show();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Overview.fxml"));
+                
+                Stage stage = new Stage(StageStyle.DECORATED);
+                try{
+                    stage.setScene(new Scene((Pane) loader.load()));
+                }catch(IOException ioe){
+                    ioe.printStackTrace();
+                }
+                OverviewController controller = loader.<OverviewController>getController();
+                controller.initData(domCntrl);
+                stage.show();
             }
         });
         
