@@ -17,12 +17,21 @@ public class SelectedFileRepository {
         try{
             Files.walk(Paths.get(path)).forEach(filePath -> {
                 if (Files.isRegularFile(filePath)) {
-                    
-                    selectedFilesNames.add(filePath.toString());
+                    //selectedFilesNames.add(filePath.toString());
+                    String filePathString = filePath.toString();
+                    if(ExtensionCollection.getInstance().inFilterList(getFileExtension(filePathString))){
+                        selectedFilesNames.add(filePathString);
+                    }
                 }
             });
         }catch(IOException ioe){
             ioe.printStackTrace();
         }
+    }
+    
+    private String getFileExtension(String file) {
+        if(file.lastIndexOf(".") != -1 && file.lastIndexOf(".") != 0)
+        return file.substring(file.lastIndexOf("."));
+        else return "";
     }
 }
