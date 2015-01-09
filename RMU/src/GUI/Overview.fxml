@@ -8,16 +8,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OverviewController">
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OverviewController">
    <children>
-      <TitledPane animated="false" prefHeight="400.0" prefWidth="600.0" text="untitled">
+      <TitledPane animated="false" prefHeight="400.0" prefWidth="600.0" text="untitled" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0">
+          <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0">
                <children>
-                  <VBox prefHeight="375.0" prefWidth="600.0">
+                  <VBox prefHeight="375.0" prefWidth="600.0" AnchorPane.bottomAnchor="-10.600000000000023" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-11.600000000000023" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ListView id="fileListView" fx:id="fileListView" prefHeight="310.0" prefWidth="600.0" />
-                        <FlowPane alignment="CENTER" prefHeight="109.0" prefWidth="600.0">
+                        <ListView id="fileListView" fx:id="fileListView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="310.0" prefWidth="600.0" />
+                        <FlowPane alignment="CENTER" prefHeight="109.0" prefWidth="600.0" VBox.vgrow="NEVER">
                            <children>
                               <Label text="Selected folder: ">
                                  <padding>

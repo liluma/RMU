@@ -9,12 +9,14 @@ import java.util.Random;
 
 public class SelectedFileRepository {
     private List<String> selectedFilesNames;
+    private String selectedPath;
     
     public SelectedFileRepository(){
         selectedFilesNames = new ArrayList<String>();
     }
     
     public void initFiles(String path){
+        this.selectedPath = path;
         try{
             Files.walk(Paths.get(path)).forEach(filePath -> {
                 if (Files.isRegularFile(filePath)) {
@@ -49,6 +51,12 @@ public class SelectedFileRepository {
             int selectedIndex = r.nextInt(toShuffleList.size());
             selectedFilesNames.add(toShuffleList.get(selectedIndex));
             toShuffleList.remove(selectedIndex);
+        }
+        
+        for(int i =0; i < selectedFilesNames.size(); i++){
+            String fileName = selectedFilesNames.get(i);
+            System.out.println(selectedPath);
+            //file hernoemen
         }
         return selectedFilesNames;
     }
