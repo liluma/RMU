@@ -47,26 +47,27 @@ public class SelectedFileRepository {
         List<String> toShuffleList = new ArrayList(selectedFilesNames);
         selectedFilesNames.clear();
         Random r = new Random();
+        int i = 1;
         
         while(toShuffleList.size() > 0){
             int selectedIndex = r.nextInt(toShuffleList.size());
-            selectedFilesNames.add(toShuffleList.get(selectedIndex));
+            selectedFilesNames.add(shuffleName(toShuffleList.get(selectedIndex), i));
             toShuffleList.remove(selectedIndex);
-        }
-        
-        for(int i =0; i < selectedFilesNames.size(); i++){
-            String FullPath = selectedFilesNames.get(i);
-            String fileName = FullPath.replace(selectedPath + "\\", "");
-            //file hernoemen           
-            if(!fileName.matches("^[0-9]*-")){
-                //nummertoevoegen aan naam
-                fileName = String.format("%d-%s", i + 1, fileName);
-                File orignalFile = new File(FullPath);
-                System.out.println(orignalFile.renameTo(new File(selectedPath + "\\" + fileName)));
-            }else{
-                System.out.println("TODO");
-            }
+            i++;
         }
         return selectedFilesNames;
+    }
+    
+    private String shuffleName(String originalName, int index){
+        String fileName = originalName.replace(selectedPath + "\\", "");
+        if(fileName.matches("^\\d{1,10}[-]{1}.*?")){
+            System.out.println("editing fileName");
+            fileName = fileName.replace("^\\d{1,10}[-]{1}", "");
+            System.out.println(fileName);
+        }
+        fileName = String.format("%d-%s", index, fileName);
+        File orignalFile = new File(originalName);
+        System.out.println(orignalFile.renameTo(new File(selectedPath + "\\" + fileName)));
+        return selectedPath + "\\" + fileName;
     }
 }
