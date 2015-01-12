@@ -48,6 +48,7 @@ public class MainView extends Application {
                 }
                 OverviewController controller = loader.<OverviewController>getController();
                 controller.initData(domCntrl);
+                primaryStage.hide();
                 stage.show();
             }
         });

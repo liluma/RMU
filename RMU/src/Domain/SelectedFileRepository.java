@@ -1,5 +1,6 @@
 package Domain;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -54,9 +55,17 @@ public class SelectedFileRepository {
         }
         
         for(int i =0; i < selectedFilesNames.size(); i++){
-            String fileName = selectedFilesNames.get(i);
-            System.out.println(selectedPath);
-            //file hernoemen
+            String FullPath = selectedFilesNames.get(i);
+            String fileName = FullPath.replace(selectedPath + "\\", "");
+            //file hernoemen           
+            if(!fileName.matches("^[0-9]*-")){
+                //nummertoevoegen aan naam
+                fileName = String.format("%d-%s", i + 1, fileName);
+                File orignalFile = new File(FullPath);
+                System.out.println(orignalFile.renameTo(new File(selectedPath + "\\" + fileName)));
+            }else{
+                System.out.println("TODO");
+            }
         }
         return selectedFilesNames;
     }
