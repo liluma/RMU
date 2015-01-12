@@ -40,7 +40,7 @@ public class OverviewController implements Initializable {
         randomizeButton.setOnAction(new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent ae){
-                JOptionPane.showMessageDialog(null, "i got clicked");
+                //JOptionPane.showMessageDialog(null, "i got clicked");
                 ObservableList<String> data = FXCollections.observableArrayList(domCntrl.shuffleSelectedFiles());
                 fileListView.setItems(data);
             }

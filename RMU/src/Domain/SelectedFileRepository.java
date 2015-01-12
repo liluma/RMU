@@ -61,7 +61,7 @@ public class SelectedFileRepository {
     private String shuffleName(String originalName, int index){
         String fileName = originalName.replace(selectedPath + "\\", "");
         if(fileName.matches("^\\d{1,10}[-]{1}.*?")){
-            System.out.println("editing fileName");
+            //System.out.println("editing fileName");
             String[] parts = fileName.split("-");
             fileName = "";
             for(int i = 1; i < parts.length; i++){
@@ -70,7 +70,7 @@ public class SelectedFileRepository {
         }
         fileName = String.format("%d-%s", index, fileName);
         File orignalFile = new File(originalName);
-        System.out.println(orignalFile.renameTo(new File(selectedPath + "\\" + fileName)));
+        //System.out.println(orignalFile.renameTo(new File(selectedPath + "\\" + fileName)));
         return selectedPath + "\\" + fileName;
     }
 }
