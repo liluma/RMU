@@ -62,8 +62,11 @@ public class SelectedFileRepository {
         String fileName = originalName.replace(selectedPath + "\\", "");
         if(fileName.matches("^\\d{1,10}[-]{1}.*?")){
             System.out.println("editing fileName");
-            fileName = fileName.replace("^\\d{1,10}[-]{1}", "");
-            System.out.println(fileName);
+            String[] parts = fileName.split("-");
+            fileName = "";
+            for(int i = 1; i < parts.length; i++){
+                fileName += parts[i];
+            }
         }
         fileName = String.format("%d-%s", index, fileName);
         File orignalFile = new File(originalName);
